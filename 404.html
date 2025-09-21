@@ -1,0 +1,35 @@
+<html><head><meta charset="utf-8">
+    
+    <title>kamepower.com / KPW</title>
+    <link href="https://github.com/kamepower/docs.kamepower.com/assets/favicon.ico" rel="shortcut icon" type="image/kpw-icon">
+</head>
+<body>
+  <div class="main-content">
+      <h3 id="is-javascript-enabled" style="display: none;">
+        このメッセージが消えずに表示されている場合、ページが正しく表示されていません。JavaScriptを有効にしてください。
+      </h3>
+      <h1 id="notfound-title" class="notfound">404 Not Found.</h1>
+      <p id="notfound-description" class="notfound">お探しのページは見つかりませんでした。</p>
+      <p class="notfound">
+        <span id="notfound-count">30</span> 秒後、<a href="/">ホーム</a>に遷移します。
+      </p>
+  </div>
+
+  <script>
+    (function(){
+      var secs = 30;
+      var el = document.getElementById('notfound-count');
+      var timer = setInterval(function(){
+        secs--;
+        if(secs <= 0){
+          clearInterval(timer);
+          location.replace("/"); // ホームに移動（履歴を残さない）
+        } else {
+          el.textContent = secs;
+        }
+      }, 1000);
+    })();
+  </script>
+
+
+</body></html>
